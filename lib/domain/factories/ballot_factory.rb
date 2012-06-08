@@ -1,0 +1,4 @@
+class BallotFactory
+    
+end
+
