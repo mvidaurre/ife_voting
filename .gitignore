@@ -1,0 +1,7 @@
+.bundle/
+log/*.log
+pkg/
+spec/delivery/db/*.sqlite3
+spec/delivery/log/*.log
+spec/delivery/tmp/
+vendor

@@ -1,0 +1,2 @@
+module IfeVoting
+end
