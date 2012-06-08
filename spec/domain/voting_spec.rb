@@ -58,4 +58,28 @@ module IfeVotingSpec
     end
   end
 
+  describe Ballot do
+    describe "Aggregate Ballot" do
+      it "should keep the decision made for the voter" do
+        pan = double('political party PAN')
+        pan.stub(:name).and_return("Partido Acción Nacional")
+        pri = double('political party PRI')
+        pri.stub(:name).and_return("Partido Revolucionario Institucional")
+        prd = double('political party PRD')
+        prd.stub(:name).and_return("Partido de la Revolución Democrática")
+        panal = double('political party PANAL')
+        panal.stub(:name).and_return("Partido Nueva Alianza")
+        ballot = Ballot.new
+        ballot << pan
+        ballot << pri
+        ballot << prd
+        ballot << panal
+        fedesoria_ife = double('Voter Federico Soria')
+        fedesoria_ife.stub(:clave).and_return("SOFE82713MSRDERI58")
+        ballot.voting(fedesoria_ife, pri)
+        ballot.vote(fedesoria_ife).should == pri
+      end
+    end
+  end
+
 end
