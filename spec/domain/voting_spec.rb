@@ -69,11 +69,23 @@ module IfeVotingSpec
         prd.stub(:name).and_return("Partido de la Revolución Democrática")
         panal = double('political party PANAL')
         panal.stub(:name).and_return("Partido Nueva Alianza")
-        ballot = Ballot.new
-        ballot << pan
-        ballot << pri
-        ballot << prd
-        ballot << panal
+        epn = double("Candidate EPN")
+        epn.stub(:name).and_return("Enrique Peña Nieto")
+        epn.stub(:alias).and_return("El Gavioto")   
+        epn.stub(:political_party).and_return(pri)
+        jvm = double("Candidate JVM")
+        jvm.stub(:name).and_return("Josefina Vazquez Mota")
+        jvm.stub(:alias).and_return("Chepis")
+        jvm.stub(:political_party).and_return(pan)
+        amlo = double("Candidate AMLO")
+        amlo.stub(:name).and_return("Andres Manuel López Obrador")
+        amlo.stub(:alias).and_return("El Peje")   
+        amlo.stub(:political_party).and_return(prd)
+        gqt = double("Gabriel Quadri de la Torre")
+        gqt.stub(:name).and_return("Gabriel Quadri de la Torr")
+        gqt.stub(:alias).and_return("El consentido de la maestra")
+        gqt.stub(:political_party).and_return(panal)
+        ballot = BallotFactory::Ballot.new_ballot_for_president(epn, jvm, amlo, gqt)
         fedesoria_ife = double('Voter Federico Soria')
         fedesoria_ife.stub(:clave).and_return("SOFE82713MSRDERI58")
         ballot.voting(fedesoria_ife, pri)
