@@ -1,4 +1,4 @@
 
-class PoliticalParty 
+class PoliticalParty < Struct.new(:name)
 
 end
