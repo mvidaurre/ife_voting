@@ -27,6 +27,15 @@ module IfeVotingSpec
         fedesoria_ife.clave.should == "SOFE82713MSRDERI58"
       end
     end
+  end
+
+  describe PoliticalParty do
+    describe "Value Object Political Party" do
+      it "should have a name" do
+        pri = PoliticalParty.new("Partido Revolucionario Institucional")
+        pri.name.should == "Partido Revolucionario Institucional"
+      end
+    end
   end 
 
 end
